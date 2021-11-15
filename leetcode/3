@@ -1,0 +1,14 @@
+⍝ 3. Longest Substring Without Repeating Characters
+⍝ https://leetcode.com/problems/longest-substring-without-repeating-characters/
+⍝ Not my solution. Taken from here https://chat.stackexchange.com/transcript/message/58457795#58457795
+⍝ Explaining to enhance understanding
+⍝ 
+⍝ 1. First we generate every substring that starts at the beginning of the string
+⍝    Ex. 'abc' becomes 'a', 'ab' and 'abc'
+⍝ 2. For each we do the following procedure
+⍝ 2.1. Reverse it (this is done because the substrings are created from start to finish, so the future "OR sweep" step needs to be done backwards)
+⍝ 2.2. Create a unique mask
+⍝ 2.3. OR sweep
+⍝ 2.4. Sum reduce
+⍝ 3. Get the bigger of those results
+solution←{⌈/{+/^\≠⌽⍵}¨,\⍵}
